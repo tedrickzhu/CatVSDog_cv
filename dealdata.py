@@ -8,6 +8,7 @@ import cv2
 
 def splitfile(trainpath,catpath,dogpath):
     allfile = listdir(trainpath)
+    count =0
     for filename in allfile:
         # print(filename)
         # break
@@ -15,6 +16,9 @@ def splitfile(trainpath,catpath,dogpath):
             copyfile(trainpath+filename,catpath+filename)
         if filename[0]=='d':
             copyfile(trainpath + filename, dogpath + filename)
+        count+=1
+        if count%100==0:
+            print(count,' images have done')
     pass
 
 def imgGen_test():
@@ -53,8 +57,8 @@ if __name__ == '__main__':
     imgPath = '/home/zzy/TrainData/kaggle_cat_dog/test1/34.jpg'
     savePath = '/home/zzy/TrainData/kaggle_cat_dog/'
 
-    # splitfile(trainpath,catpath,dogpath)
+    splitfile(trainpath,catpath,dogpath)
 
-    image = cv2.imread(trainpath+'cat.4567.jpg')
-    print(image.shape)
+    # image = cv2.imread(trainpath+'cat.4567.jpg')
+    # print(image.shape)
 
