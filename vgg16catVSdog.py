@@ -53,7 +53,7 @@ test_generator = test_datagen.flow_from_directory(
     batch_size=batch_size,
 )
 
-print train_generator.class_indices
+print(train_generator.class_indices)
 
 #定义优化器，代价函数，训练过程中计算准确率
 model.compile(

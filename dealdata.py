@@ -21,6 +21,25 @@ def splitfile(trainpath,catpath,dogpath):
             print(count,' images have done')
     pass
 
+def chooseData(trainpath,traincat,traindog,testcat,testdog):
+    allfile = listdir(trainpath)
+    cat =0
+    dog = 0
+    for filename in allfile:
+        # print(filename)
+        # break
+
+        if filename[0]=='c' and cat <1000:
+            copyfile(trainpath+filename,traincat+filename)
+        elif filename[0] == 'c' and cat >=1000 and cat <1499:
+            copyfile(trainpath + filename, testcat + filename)
+
+        if filename[0]=='d' and dog <1000:
+            copyfile(trainpath+filename,dogcat+filename)
+        elif filename[0] == 'd' and dog >=1000 and dog <1499:
+            copyfile(trainpath + filename, dogcat + filename)
+
+
 def imgGen_test():
     # 图片生成器
     datagen = ImageDataGenerator(
